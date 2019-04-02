@@ -11,6 +11,9 @@
     <script src="script.js"></script>
 </head>
 <body>
+    <div class="loginsection">
+        <a href="login.php">login to make changes</a>
+    </div>
     <div class="resume-body">
         <!-- left side section -->
         <div class="left-side">
