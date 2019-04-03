@@ -11,14 +11,6 @@
     <script src="script.js"></script>
 </head>
 <body>
-<?php
-//include auth.php file on all secure pages
-require('db.php');
-include("auth.php");
-?>
-    <div class="loginsection">
-        <a href="login.php">login to make changes</a>
-    </div>
     <div class="resume-body">
         <!-- left side section -->
         <div class="left-side">
@@ -129,11 +121,6 @@ include("auth.php");
             <img src="images/edu-icon.png" class="edu-icon" alt="" />
             <img src="images/lang-icon.png" class="lang-icon" alt="" />
         </div>
-        <?php
-            $query = "SELECT * FROM `users` WHERE username='$username' and password='$password)'";
-                $result = mysqli_query($con,$query) or die(mysql_error());
-                $rows = mysqli_num_rows($result);
-        ?>
         <div class="right-side">
             <div class="expreience">
                 <h3 class="exp-title">EXPREIENCE</h3> <img src="/images/hor-line.png" alt="" class="hor-line"/>

@@ -1,7 +1,8 @@
 <?php 
-if($_SESSION['username'] !==""){
-    header("Location: dashboard.php");
-    }
+// if($_SESSION['username'] !==""){
+//     header("Location: dashboard.php");
+//     exit();
+//     }
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +13,7 @@ if($_SESSION['username'] !==""){
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Blank Template for Bootstrap</title>
+        <title>Login</title>
         <!-- Bootstrap core CSS -->
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
         <!-- Custom styles for this template -->
