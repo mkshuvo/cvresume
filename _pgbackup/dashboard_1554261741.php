@@ -22,7 +22,7 @@ include("auth.php");
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-lg-3"> 
-                </div>
+</div>
                 <div class="col-md-4 col-lg-6"> 
                     <a href="#" class="btn btn-success">Experience</a>
                 </div>
@@ -31,7 +31,7 @@ include("auth.php");
             <br/>
             <div class="row">
                 <div class="col-md-4 col-lg-3"> 
-                </div>
+</div>
                 <div class="col-md-4 col-lg-6"> 
                     <a href="#" class="btn btn-success">Education</a>
                 </div>
@@ -40,34 +40,25 @@ include("auth.php");
             <br/>
             <div class="row">
                 <div class="col-md-4 col-lg-3"> 
-                </div>
+</div>
                 <div class="col-md-4 col-lg-6"> 
-                    <a href="#" class="btn btn-success">Language</a>
+                    <a href="#" class="btn btn-success">Experience</a>
                 </div>
             </div>
             <br/>
             <br/>
             <div class="row">
                 <div class="col-md-4 col-lg-3"> 
-                </div>
+</div>
                 <div class="col-md-4 col-lg-6"> 
-                    <a href="#" class="btn btn-success">About Me</a>
+                    <a href="#" class="btn btn-success">Experience</a>
                 </div>
             </div>
             <br/>
             <br/>
             <div class="row">
                 <div class="col-md-4 col-lg-3"> 
-                </div>
-                <div class="col-md-4 col-lg-6"> 
-                    <a href="#" class="btn btn-success">Skills set</a>&nbsp;
-                </div>
-            </div>
-            <br />
-            <br />
-            <div class="row">
-                <div class="col-md-4 col-lg-3"> 
-                </div>
+</div>
                 <div class="col-md-4 col-lg-6"> 
                     <a href="#" class="btn btn-success">Experience</a>
                 </div>

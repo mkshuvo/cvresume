@@ -27,40 +27,31 @@ include("auth.php");
                     <a href="#" class="btn btn-success">Experience</a>
                 </div>
             </div>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <div class="row">
                 <div class="col-md-4 col-lg-3"> 
                 </div>
                 <div class="col-md-4 col-lg-6"> 
-                    <a href="#" class="btn btn-success">Education</a>
+                    <a href="#" class="btn btn-success">Experience</a>
                 </div>
             </div>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <div class="row">
                 <div class="col-md-4 col-lg-3"> 
                 </div>
                 <div class="col-md-4 col-lg-6"> 
-                    <a href="#" class="btn btn-success">Language</a>
+                    <a href="#" class="btn btn-success">Experience</a>
                 </div>
             </div>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <div class="row">
                 <div class="col-md-4 col-lg-3"> 
                 </div>
                 <div class="col-md-4 col-lg-6"> 
-                    <a href="#" class="btn btn-success">About Me</a>
-                </div>
-            </div>
-            <br/>
-            <br/>
-            <div class="row">
-                <div class="col-md-4 col-lg-3"> 
-                </div>
-                <div class="col-md-4 col-lg-6"> 
-                    <a href="#" class="btn btn-success">Skills set</a>&nbsp;
+                    <a href="#" class="btn btn-success">Experience</a>
                 </div>
             </div>
             <br />
@@ -73,6 +64,7 @@ include("auth.php");
                 </div>
             </div>
         </div>
+
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/popper.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>

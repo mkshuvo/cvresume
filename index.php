@@ -28,7 +28,7 @@ require('db.php');
                     <img src="images/profilepic.png" class="dp-img" width="60%" alt="" />
                 </div>
                 <div class="profile-title">
-                    <h3 class="person-name">SHOHAGH HOSSEN</h3>
+                    <h3 class="person-name">MOHSIN KHAN</h3>
                     <h3 class="person-title">Graphic Designer</h3>
                 </div>
             </div>
