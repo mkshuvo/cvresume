@@ -14,7 +14,7 @@
 <?php
 //include auth.php file on all secure pages
 require('db.php');
-include("auth.php");
+
 ?>
     <div class="loginsection">
         <a href="login.php">login to make changes</a>
@@ -32,14 +32,23 @@ include("auth.php");
                     <h3 class="person-title">Graphic Designer</h3>
                 </div>
             </div>
+
+            <?php
+            // $query1 = "SELECT exp_title, exp_description, exp_time FROM `experience` WHERE expid='1'";
+            // $exp_1 = mysqli_query($con,$query1) or die(mysql_error());
+            $aboutquery = "SELECT * FROM `aboutme` ORDER BY about_id";
+            $about_result = mysqli_query($con,$aboutquery) or die(mysql_error());
+            
+            ?>
             <!-- about section -->
             <div class="about-title-line">
                 <div class="about-me-description">
                     <span class="user-icon"><i class="fas fa-user-tie" style="color: #fff;"></i></span><h3 style="padding-left:40px;" class="about-title">About Me</h3>
                     <p class="about-des">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-    
-    When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.remaining essentially unchanged.
+                    <?php while($aboutrow = mysqli_fetch_assoc($about_result)) { 
+                        echo $aboutrow["aboutdescription"];
+                    }
+                    ?>
                     </p>
                 </div>
             </div>
@@ -49,6 +58,13 @@ include("auth.php");
                 <div class="skill-title">
                        <img src="images/skill-icon.png" class="skill-icon-main" alt=""> <h3 class="skill-title">My Skill</h3>
                 </div>
+                <?php
+                // $query1 = "SELECT exp_title, exp_description, exp_time FROM `experience` WHERE expid='1'";
+                // $exp_1 = mysqli_query($con,$query1) or die(mysql_error());
+                $aboutquery = "SELECT * FROM `aboutme` ORDER BY about_id";
+                $about_result = mysqli_query($con,$aboutquery) or die(mysql_error());
+                
+                ?>
                 <div class="skill-bars">
                     <!-- photoshop -->
                     <div class="skill-item">
@@ -129,67 +145,59 @@ include("auth.php");
             <img src="images/edu-icon.png" class="edu-icon" alt="" />
             <img src="images/lang-icon.png" class="lang-icon" alt="" />
         </div>
+
+
+        <!-- experience data fetch from database -->
         <?php
-            $query = "SELECT * FROM `users` WHERE username='$username' and password='$password)'";
-                $result = mysqli_query($con,$query) or die(mysql_error());
-                $rows = mysqli_num_rows($result);
+            // $query1 = "SELECT exp_title, exp_description, exp_time FROM `experience` WHERE expid='1'";
+            // $exp_1 = mysqli_query($con,$query1) or die(mysql_error());
+            $query = "SELECT * FROM `experience` ORDER BY expid";
+            $exp = mysqli_query($con,$query) or die(mysql_error());
+            
         ?>
         <div class="right-side">
             <div class="expreience">
                 <h3 class="exp-title">EXPREIENCE</h3> <img src="/images/hor-line.png" alt="" class="hor-line"/>
+                <?php while($row = mysqli_fetch_assoc($exp)) { ?>
                 <div class="exp-content">
-                    <h4 class="career-title">GRAPHIC DESIGN</h4><span class="date" style="text-align: right; display: inline-block">April 2011-December 2015</span>
+                    <h4 class="career-title">
+                    <?php 
+                        echo $row["exp_title"];
+                    ?>
+                    </h4><span class="date" style="text-align: right; display: inline-block"><?php echo $row["exp_time"]; ?></span>
                     <br/>
                     <p class="exp-des">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.
+                        <?php echo $row["exp_description"]; ?>
                     </p>
                 </div>
-                <div class="exp-content">
-                    <h4 class="career-title">LOGO DESIGN</h4><span class="date" style="text-align: right; display: inline-block">April 2011-December 2015</span>
-                    <br/>
-                    <p class="exp-des">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.
-                    </p>
-                </div>
-                <div class="exp-content">
-                    <h4 class="career-title">BRAND IDENTITY DESIGN</h4><span class="date" style="text-align: right; display: inline-block">April 2011-December 2015</span>
-                    <br/>
-                    <p class="exp-des">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.
-                    </p>
-                </div>
-                <div class="exp-content">
-                    <h4 class="career-title">STATIONERY DESIGN</h4><span class="date" style="text-align: right; display: inline-block">April 2011-December 2015</span>
-                    <br/>
-                    <p class="exp-des">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.
-                    </p>
-                </div>
+                <?php } ?>
             </div>
+        <!-- experience fetching ends here -->
+
+        <!-- education fetching ends here -->
+        <?php
+            // $query1 = "SELECT exp_title, exp_description, exp_time FROM `experience` WHERE expid='1'";
+            // $exp_1 = mysqli_query($con,$query1) or die(mysql_error());
+            $eduquery = "SELECT * FROM `education` ORDER BY eduid";
+            $edu = mysqli_query($con,$eduquery) or die(mysql_error());
+            
+        ?>
             <div class="education">
                 <h3 class="edu-title">EDUCATION</h3> <img src="/images/hor-line.png" alt="" class="hor-line"/>
+                <?php while($edurow = mysqli_fetch_assoc($edu)) { ?>
                 <div class="edu-content">
-                    <h4 class="degree-title">GRAPHIC AND ART</h4><span class="date" style="text-align: right; display: inline-block">April 2011-December 2015</span>
+                    <h4 class="degree-title"><?php echo $edurow["edu_title"] ?></h4><span class="date" style="text-align: right; display: inline-block"><?php echo $edurow["edu_date"]; ?></span>
                     <br/>
                     <p class="edu-des">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.
+                    <?php echo $edurow["edu_description"]; ?>
                     </p>
                 </div>
-                <div class="edu-content">
-                    <h4 class="degree-title">ARCHITECTURE</h4><span class="date" style="text-align: right; display: inline-block">April 2011-December 2015</span>
-                    <br/>
-                    <p class="edu-des">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.
-                    </p>
-                </div>
-                <div class="edu-content">
-                    <h4 class="degree-title">IDENTITY DEVELOPMENT</h4><span class="date" style="text-align: right; display: inline-block">April 2011-December 2015</span>
-                    <br/>
-                    <p class="edu-des">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.
-                    </p>
-                </div>
+                <?php } ?>
+
             </div>
+
+
+            <!-- education fetching starts here -->
             <div class="language">
                 <div class="lang-title">
                     <h3 class="lang-title">LANGUAGE</h3><img src="/images/hor-line.png" alt="" class="hor-line"/>
@@ -199,50 +207,22 @@ include("auth.php");
                         <h4 class="lang-name">BANGLA</h4><br/>
                         <h4 class="lang-name">GERMAN</h4><br/>
                     </div>
-                    <div class="level-set">        
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-two"></li>
-                        <li class="circle-lvl set-two"></li>
+                    <div class="level-set">
+                    <?php
+                        // $query1 = "SELECT exp_title, exp_description, exp_time FROM `experience` WHERE expid='1'";
+                        // $exp_1 = mysqli_query($con,$query1) or die(mysql_error());
+                        $langquery = "SELECT * FROM `lang_skill` ORDER BY langid";
+                        $lang = mysqli_query($con,$langquery) or die(mysql_error());
+                    ?>
+                    <?php while($langrow = mysqli_fetch_assoc($lang)) { ?>
+                        <?php for($i=1; $i <= $langrow["langlevel"]; $i++){ ?>
+                            <li class="circle-lvl set-one"></li>
+                        <?php } echo '<br />'; //for loop ends here?>
+                        <?php }?>
+                        
+                        <!-- <li class="circle-lvl set-two"></li> -->
                         <br/>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-two"></li>
-                        <li class="circle-lvl set-two"></li>
-                        <li class="circle-lvl set-two"></li>
-                        <li class="circle-lvl set-two"></li>
-                        <br/>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <br/>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-one"></li>
-                        <li class="circle-lvl set-two"></li>
-                        <li class="circle-lvl set-two"></li>
-                        <li class="circle-lvl set-two"></li>
+                        
                         <br/>
                     </div>
                 </div>

@@ -143,16 +143,16 @@ body{
     
 }
 .photoshop{
-    width: 200px !important;
+    width: 200px;
 }
 .illustration{
-    width: 250px !important;
+    width: 250px;
 }
 .indesign{
-    width: 150px !important;
+    width: 150px;
 }
 .word{
-    width: 280px !important;
+    width: 280px;
 }
 
 /* contact section  */
