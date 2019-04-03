@@ -42,7 +42,7 @@
                         <input type="hidden" name="new" value="1" />
                         <input name="expid" type="hidden" value="<?php echo $row['expid'];?>" />
                         <div class="form-group"> 
-                            <label for="-exp_title">exp_title</label>                             
+                            <label for="exp_title">exp_title</label>                             
 
                             <input type="text" class="form-control" name="exp_title" placeholder="Enter exp_title" value="<?php echo $row['exp_title']; ?>" /> 
                         </div>                         
