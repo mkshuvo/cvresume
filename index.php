@@ -59,80 +59,44 @@ require('db.php');
                     <img src="images/skill-icon.png" class="skill-icon-main" alt=""> <h3 class="skill-title">My Skill</h3>
                 </div>
                 <?php
-                $aboutquery = "SELECT * FROM `aboutme` ORDER BY about_id";
-                $about_result = mysqli_query($con,$aboutquery) or die(mysql_error());
+                $skillsquery = "SELECT * FROM `skills` ORDER BY skillid";
+                $skill_result = mysqli_query($con,$skillsquery) or die(mysql_error());
                 ?>
                 <div class="skill-bars">
-                    <!-- photoshop -->
+                <?php while($skillrow = mysqli_fetch_assoc($skill_result)) { ?>
                     <div class="skill-item">
-                        <img src="images/photoshop-icon.png" class="skill-icon" style="display: inline-block; padding-left: 45px;margin-top: 30px;" alt="photoshop" />&nbsp; &nbsp; &nbsp; <h4 class="skill-item-title" style="display: inline-block; font-size: 20px; ">Adobe Photoshop</h4>
+                        <img src="images/<?php echo $skillrow["iconfilename"]; ?>" class="skill-icon" style="display: inline-block; padding-left: 45px;margin-top: 30px;" alt="photoshop" />&nbsp; &nbsp; &nbsp; <h4 class="skill-item-title" style="display: inline-block; font-size: 20px; "><?php echo $skillrow["skillname"]; ?></h4>
                         <div class="skill-progress">
                             <div class="full-bar"></div>
-                            <div class="progressbar photoshop"></div>
+                            <div class="progressbar" style="width: <?php echo $skillrow["skilllevel"];?>px !important"></div>
                         </div>
                     </div>
-                    <!-- illustration -->
-                    <div class="skill-item">
-                            <img src="images/illustrator-icon.png" class="skill-icon" style="display: inline-block; padding-left: 45px;margin-top: 30px;" alt="photoshop" />&nbsp; &nbsp; &nbsp; <h4 class="skill-item-title" style="display: inline-block; font-size: 20px; ">Adobe Illustrator</h4>
-                            <div class="skill-progress">
-                                <div class="full-bar"></div>
-                                <div class="progressbar illustration"></div>
-                            </div>
-                    </div>
-                    <!-- indesign -->
-                    <div class="skill-item">
-                            <img src="images/indesign-icon.png" class="skill-icon" style="display: inline-block; padding-left: 45px;margin-top: 30px;" alt="photoshop" />&nbsp; &nbsp; &nbsp; <h4 class="skill-item-title" style="display: inline-block; font-size: 20px; ">Adobe Indesign</h4>
-                            <div class="skill-progress">
-                                <div class="full-bar"></div>
-                                <div class="progressbar indesign"></div>
-                            </div>
-                    </div>
-                    <!-- word -->
-                    <div class="skill-item">
-                            <img src="images/word-icon.png" class="skill-icon" style="display: inline-block; padding-left: 45px;margin-top: 30px;" alt="photoshop" />&nbsp; &nbsp; &nbsp; <h4 class="skill-item-title" style="display: inline-block; font-size: 20px; ">Microsoft Word</h4>
-                            <div class="skill-progress">
-                                <div class="full-bar"></div>
-                                <div class="progressbar word"></div>
-                            </div>
-                    </div>
-                    <!-- powerpoint -->
-                    <div class="skill-item">
-                            <img src="images/powerpoint-icon.png" class="skill-icon" style="display: inline-block; padding-left: 45px;margin-top: 30px;" alt="photoshop" />&nbsp; &nbsp; &nbsp; <h4 class="skill-item-title" style="display: inline-block; font-size: 20px; ">Microsoft Powerpoint</h4>
-                            <div class="skill-progress">
-                                <div class="full-bar"></div>
-                                <div class="progressbar powerpoint"></div>
-                            </div>
-                    </div>
-                    <!-- excel -->
-                    <div class="skill-item">
-                            <img src="images/excel-icon.png" class="skill-icon" style="display: inline-block; padding-left: 45px;margin-top: 30px;" alt="photoshop" />&nbsp; &nbsp; &nbsp; <h4 class="skill-item-title" style="display: inline-block; font-size: 20px; ">Microsoft Excel</h4>
-                            <div class="skill-progress">
-                                <div class="full-bar"></div>
-                                <div class="progressbar excel"></div>
-                            </div>
-                    </div>
+                <?php } ?>
                 </div>
             </div>
             <div class="space" style="margin-top: 15px;"></div>
             <!-- contact section -->
+            <?php
+                $contactquery = "SELECT * FROM `contact` ORDER BY contactid";
+                $contactresult = mysqli_query($con,$contactquery) or die(mysql_error());
+            ?>
             <div class="contact-section">
                 <div class="contact-title">
                     <img src="images/person-icon.png" class="person-icon" style="width:10%; display: inline-block" alt="" /><h3 style="display: inline-block">Contact Me</h3>
                 </div>
+                <?php while($contactrow = mysqli_fetch_assoc($contactresult)) { ?>
                 <div class="contact-info">
-                    <img src="images/marker-icon.png" class="marker-icon" style="width:10%; display: inline-block" alt="" /><h3 style="display: inline-block; font-family: 'Roboto', sans-serif; font-weight: 200; font-size: 14px;padding-left: 10px;">Valley Obstetrics & Gynecology<br/>
-                        585 North 500 West.</h3>  
+                    <img src="images/marker-icon.png" class="marker-icon" style="width:10%; display: inline-block" alt="" /><h3 style="display: inline-block; font-family: 'Roboto', sans-serif; font-weight: 200; font-size: 14px;padding-left: 10px;"><?php echo $contactrow["location"]; ?></h3>  
                 </div>
                 <br/>
                 <div class="contact-info">
-                    <img src="images/globe-icon.png" class="globe-icon" style="width:10%; display: inline-block" alt="" /><h3 style="display: inline-block; font-family: 'Roboto', sans-serif; font-weight: 200; font-size: 14px;padding-left: 10px;">www.shohagh989.com<br/>
-                        shohagh989@gmail.com</h3> 
+                    <img src="images/globe-icon.png" class="globe-icon" style="width:10%; display: inline-block" alt="" /><h3 style="display: inline-block; font-family: 'Roboto', sans-serif; font-weight: 200; font-size: 14px;padding-left: 10px;"><?php echo $contactrow["contactemail"]; ?></h3> 
                 </div>
                 <br/>
                 <div class="contact-info">
-                    <img src="images/phone-icon.png" class="phone-icon" style="width:10%; display: inline-block" alt="" /><h3 style="display: inline-block; font-family: 'Roboto', sans-serif; font-weight: 200; font-size: 14px;padding-left: 10px;">+32454080478<br/>
-                        +1354609840685</h3> 
+                    <img src="images/phone-icon.png" class="phone-icon" style="width:10%; display: inline-block" alt="" /><h3 style="display: inline-block; font-family: 'Roboto', sans-serif; font-weight: 200; font-size: 14px;padding-left: 10px;"><?php echo $contactrow["phonenumber"]; ?></h3> 
                 </div>
+                <?php } ?>
             </div>
         </div>
         <!-- right side section  -->
