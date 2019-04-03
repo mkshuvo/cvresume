@@ -200,9 +200,9 @@ include("auth.php");
                         <th>langid</th>
                         <th>id</th>
                         <th>username</th>
-                        <th>edu_title</th>
-                        <th>edu_description</th>
-                        <th>edu_date</th>
+                        <th>langname</th>
+                        <th>langlevel</th>
+                       
                     </tr>
                     </thead>
                     <tbody>
