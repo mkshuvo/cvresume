@@ -20,58 +20,72 @@ include("auth.php");
             <a href="logout.php">Logout</a> 
         </div>         
         <div class="container">
+
             <div class="row">
-                <div class="col-md-4 col-lg-3"> 
-                </div>
-                <div class="col-md-4 col-lg-6"> 
-                    <a href="#" class="btn btn-success">Experience</a>
-                </div>
+               <h2>About Me</h2>
+               <table class="table">
+                    <thead>
+                    <tr>
+                        <th>about_id</th>
+                        <th>id</th>
+                        <th>username</th>
+                        <th>aboutdescription</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+    
+                    $aboutquery="Select * from aboutme ORDER BY about_id;";
+                    $aboutresult = mysqli_query($con,$aboutquery);
+                    while($aboutrow = mysqli_fetch_assoc($aboutresult)) { ?>
+                    <tr>
+                        <td><?php echo $aboutrow["about_id"] ?></td>
+                        <td><?php echo $aboutrow["id"] ?></td>
+                        <td><?php echo $aboutrow["username"] ?></td>
+                        <td><?php echo $aboutrow["aboutdescription"] ?></td>
+                        <td align="center"><a href="aboutme.php?id=<?php echo $aboutrow["id"] ?>">Edit or delete</a></td>
+                    </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
             </div>
-            <br/>
-            <br/>
+            <br>
+            <br>
+            <br>
             <div class="row">
-                <div class="col-md-4 col-lg-3"> 
-                </div>
-                <div class="col-md-4 col-lg-6"> 
-                    <a href="#" class="btn btn-success">Education</a>
-                </div>
+               <h2>Skill Set</h2>
+               <table class="table">
+                    <thead>
+                    <tr>
+                        <th>skillID</th>
+                        <th>id</th>
+                        <th>username</th>
+                        <th>iconfilename</th>
+                        <th>skillsname</th>
+                        <th>skilllevel</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+    
+                    $skillquery="Select * from skills ORDER BY skillid;";
+                    $skillresult = mysqli_query($con,$skillquery);
+                    while($skillrow = mysqli_fetch_assoc($skillresult)) { ?>
+                    <tr>
+                        <td><?php echo $skillrow["skillid"] ?></td>
+                        <td><?php echo $skillrow["id"] ?></td>
+                        <td><?php echo $skillrow["username"] ?></td>
+                        <td><?php echo $skillrow["iconfilename"] ?></td>
+                        <td><?php echo $skillrow["skillname"] ?></td>
+                        <td><?php echo $skillrow["skilllevel"] ?></td>
+                        <td align="center"><a href="skillset.php?id=<?php echo $skillrow["id"] ?>">Edit or delete</a></td>
+                    </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
             </div>
-            <br/>
-            <br/>
-            <div class="row">
-                <div class="col-md-4 col-lg-3"> 
-                </div>
-                <div class="col-md-4 col-lg-6"> 
-                    <a href="#" class="btn btn-success">Language</a>
-                </div>
-            </div>
-            <br/>
-            <br/>
-            <div class="row">
-                <div class="col-md-4 col-lg-3"> 
-                </div>
-                <div class="col-md-4 col-lg-6"> 
-                    <a href="#" class="btn btn-success">About Me</a>
-                </div>
-            </div>
-            <br/>
-            <br/>
-            <div class="row">
-                <div class="col-md-4 col-lg-3"> 
-                </div>
-                <div class="col-md-4 col-lg-6"> 
-                    <a href="#" class="btn btn-success">Skills set</a>&nbsp;
-                </div>
-            </div>
-            <br />
-            <br />
-            <div class="row">
-                <div class="col-md-4 col-lg-3"> 
-                </div>
-                <div class="col-md-4 col-lg-6"> 
-                    <a href="#" class="btn btn-success">Experience</a>
-                </div>
-            </div>
+        
+
         </div>
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/popper.js"></script>
