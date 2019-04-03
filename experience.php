@@ -12,30 +12,30 @@
         <div class="row">
             <div class="offset-3 col-md-6 ">
                 <h3>Experience Information Form</h3>
-                        <?php
-                        require('auth.php');
-                        require('db.php');
-                        $id=$_REQUEST['id'];
-                        $query = "SELECT * FROM experience where expid='".$id."'";
-                        $result = mysqli_query($con,$query) or die ( mysqli_error($con));
-                        $row = mysqli_fetch_assoc($result);
+    <?php
+    require('auth.php');
+    require('db.php');
+    $id=$_REQUEST['id'];
+    $query = "SELECT * FROM experience where expid='".$id."'";
+    $result = mysqli_query($con,$query) or die ( mysqli_error($con));
+    $row = mysqli_fetch_assoc($result);
 
-                        $status = "";
-                        if(isset($_POST['new']) && $_POST['new']==1)
-                        {
-                       
-                        
-                        $exp_title = $_REQUEST['exp_title'];
-                        $exp_description = $_REQUEST['exp_description'];
-                        $exp_time = $_REQUEST['exp_time'];
-                        $update="UPDATE experience SET exp_title='".$exp_title."' , exp_description='".$exp_description."' , exp_time='".$exp_time."'
-                        WHERE expid='".$id."'";
-                        mysqli_query($con, $update) or die ( mysqli_error($con));
-                        $status = "Record Updated Successfully. </br></br>
-                        <a href='dashboard.php'>View Updated Record</a>";
-                        echo '<p style="color:#FF0000;">'.$status.'</p>';
-                        }else {
-                        ?>
+    $status = "";
+    if(isset($_POST['new']) && $_POST['new']==1)
+    {
+    
+    
+        $exp_title = str_replace("'", "\'", $_REQUEST['exp_title']);
+        $exp_description = str_replace("'", "\'", $_REQUEST['exp_description']);
+        $exp_time = $_REQUEST['exp_time'];
+        $update="UPDATE experience SET exp_title='".$exp_title."' , exp_description='".$exp_description."' , exp_time='".$exp_time."'
+        WHERE expid='".$id."'";
+    mysqli_query($con, $update) or die ( mysqli_error($con));
+    $status = "Record Updated Successfully. </br></br>
+    <a href='dashboard.php'>View Updated Record</a>";
+    echo '<p style="color:#FF0000;">'.$status.'</p>';
+    }else {
+    ?>
         
                     <form action="" method="POST" role="form"> 
                    
