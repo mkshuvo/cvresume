@@ -56,14 +56,11 @@ require('db.php');
             <!-- skills section -->
             <div class="skill-section">
                 <div class="skill-title">
-                       <img src="images/skill-icon.png" class="skill-icon-main" alt=""> <h3 class="skill-title">My Skill</h3>
+                    <img src="images/skill-icon.png" class="skill-icon-main" alt=""> <h3 class="skill-title">My Skill</h3>
                 </div>
                 <?php
-                // $query1 = "SELECT exp_title, exp_description, exp_time FROM `experience` WHERE expid='1'";
-                // $exp_1 = mysqli_query($con,$query1) or die(mysql_error());
                 $aboutquery = "SELECT * FROM `aboutme` ORDER BY about_id";
                 $about_result = mysqli_query($con,$aboutquery) or die(mysql_error());
-                
                 ?>
                 <div class="skill-bars">
                     <!-- photoshop -->
